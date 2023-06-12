@@ -18,6 +18,7 @@
 		$tanggal_penjualan = htmlspecialchars($_POST['tanggal_penjualan']);
 		$nama_pembeli = htmlspecialchars($_POST['nama_pembeli']);
 		$alamat_pembeli = htmlspecialchars($_POST['alamat_pembeli']);
+		$status_penjualan = htmlspecialchars($_POST['status_penjualan']);
 	
 		$update_stok_old = mysqli_query($koneksi, "UPDATE produk SET stok_produk = stok_produk + $stok_terjual_old WHERE id_produk = '$id_produk'");
 
@@ -33,7 +34,9 @@
             exit;
 		}
 
-		$ubahPenjualan = mysqli_query($koneksi, "UPDATE penjualan SET id_produk = '$id_produk', stok_terjual = '$stok_terjual', tanggal_penjualan = '$tanggal_penjualan', nama_pembeli = '$nama_pembeli', alamat_pembeli = '$alamat_pembeli' WHERE id_penjualan = '$id_penjualan'");
+		$total_harga = $data_produk['harga_produk'] * $stok_terjual;
+
+		$ubahPenjualan = mysqli_query($koneksi, "UPDATE penjualan SET id_produk = '$id_produk', stok_terjual = '$stok_terjual', tanggal_penjualan = '$tanggal_penjualan', total_harga = '$total_harga', nama_pembeli = '$nama_pembeli', alamat_pembeli = '$alamat_pembeli', status_penjualan = '$status_penjualan' WHERE id_penjualan = '$id_penjualan'");
 
 		if ($ubahPenjualan) {
 			$update_stok = mysqli_query($koneksi, "UPDATE produk SET stok_produk = stok_produk - $stok_terjual WHERE id_produk = '$id_produk'");
@@ -99,6 +102,13 @@
 					<div class="mb-3">
 					    <label for="alamat_pembeli" class="form-label">Alamat Pembeli</label>
 					    <textarea class="form-control" id="alamat_pembeli" name="alamat_pembeli" required><?= $data_penjualan['alamat_pembeli']; ?></textarea>
+					</div>
+					<div class="mb-3">
+					    <label for="status_penjualan" class="form-label">Status Penjualan</label>
+					    <select class="form-select" id="status_penjualan" name="status_penjualan" required>
+						    <option value="Selesai">Selesai</option>
+						    <option value="Belum">Belum</option>
+					    </select>
 					</div>
 					<div class="mb-3 text-end">
 						<button type="submit" class="btn btn-primary" name="btnUbah">Ubah</button>

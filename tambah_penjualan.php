@@ -26,8 +26,10 @@
             ";
             exit;
 		}
+		
+		$total_harga = $data_produk['harga_produk'] * $stok_terjual;
 
-		$tambahPenjualan = mysqli_query($koneksi, "INSERT INTO penjualan VALUES ('', '$id_produk', '$stok_terjual', '$tanggal_penjualan', '$nama_pembeli', '$alamat_pembeli')");
+		$tambahPenjualan = mysqli_query($koneksi, "INSERT INTO penjualan VALUES ('', '$id_produk', '$stok_terjual', '$tanggal_penjualan', '$total_harga', '$nama_pembeli', '$alamat_pembeli', 'Belum')");
 
 		if ($tambahPenjualan) {
 			$update_stok = mysqli_query($koneksi, "UPDATE produk SET stok_produk = stok_produk - $stok_terjual WHERE id_produk = '$id_produk'");

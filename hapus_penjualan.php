@@ -23,7 +23,7 @@
 	if ($hapus_penjualan) {
 		echo "
 			<script>
-				alert('penjualan berhasil dihapus!')
+				alert('Penjualan berhasil dihapus!')
 				window.location.href='penjualan.php'
 			</script>
 		";
@@ -31,7 +31,7 @@
 	} else {
 		echo "
 			<script>
-				alert('penjualan gagal dihapus!')
+				alert('Penjualan gagal dihapus!')
 				window.history.back()
 			</script>
 		";
