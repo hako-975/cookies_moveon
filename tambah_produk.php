@@ -11,37 +11,38 @@
 	if (isset($_POST['btnTambah'])) {
 		$nama_produk = htmlspecialchars($_POST['nama_produk']);
 		$jenis_produk = htmlspecialchars($_POST['jenis_produk']);
-		$jumlah_stok = htmlspecialchars($_POST['jumlah_stok']);
-		$harga = htmlspecialchars($_POST['harga']);
+		$satuan_produk = htmlspecialchars($_POST['satuan_produk']);
+		$stok_produk = htmlspecialchars($_POST['stok_produk']);
+		$harga_produk = htmlspecialchars($_POST['harga_produk']);
 		
-		$foto = $_FILES['foto']['name'];
-		if ($foto != '') {
+		$foto_produk = $_FILES['foto_produk']['name'];
+		if ($foto_produk != '') {
 	        $acc_extension = array('png','jpg', 'jpeg', 'gif');
-	        $extension = explode('.', $foto);
+	        $extension = explode('.', $foto_produk);
 	        $extension_lower = strtolower(end($extension));
-	        $size = $_FILES['foto']['size'];
-	        $file_tmp = $_FILES['foto']['tmp_name'];   
+	        $size = $_FILES['foto_produk']['size'];
+	        $file_tmp = $_FILES['foto_produk']['tmp_name'];   
 	        
 	        if(!in_array($extension_lower, $acc_extension))
 	        {
 	            echo "
 	                <script>
-	                    alert('File yang Anda upload tidak sesuai format!')
+	                    alert('Foto yang Anda upload tidak sesuai format!')
 	                    window.history.back()
 	                </script>
 	            ";
 	            exit;
 	        }
 
-	        $foto = uniqid() .'-'. $foto;
-	        move_uploaded_file($file_tmp, 'img/'. $foto);
+	        $foto_produk = uniqid() .'-'. $foto_produk;
+	        move_uploaded_file($file_tmp, 'img/'. $foto_produk);
 	    }
 	    else
 	    {
-	        $foto = '';
+	        $foto_produk = '';
 	    }
 
-		$tambahProduk = mysqli_query($koneksi, "INSERT INTO produk VALUES ('', '$nama_produk', '$jenis_produk', '$jumlah_stok', '$harga', '$foto')");
+		$tambahProduk = mysqli_query($koneksi, "INSERT INTO produk VALUES ('', '$nama_produk', '$jenis_produk', '$satuan_produk', '$stok_produk', '$harga_produk', '$foto_produk')");
 
 		if ($tambahProduk) {
 	        echo "
@@ -74,41 +75,49 @@
 
 	<?php include_once 'navbar.php'; ?>
 
-	<!-- about -->
-	<section class="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<h2>Tambah Produk</h2>
-					<form method="post" enctype="multipart/form-data">
-						<div class="mb-3">
-						    <label for="nama_produk" class="form-label">Nama Produk</label>
-						    <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
-						</div>
-						<div class="mb-3">
-						    <label for="jenis_produk" class="form-label">Jenis Produk</label>
-						    <input type="text" class="form-control" id="jenis_produk" name="jenis_produk" required>
-						</div>
-						<div class="mb-3">
-						    <label for="jumlah_stok" class="form-label">Jumlah Stok</label>
-						    <input type="number" class="form-control" id="jumlah_stok" name="jumlah_stok" required>
-						</div>
-						<div class="mb-3">
-						    <label for="harga" class="form-label">Harga</label>
-						    <input type="number" class="form-control" id="harga" name="harga" required>
-						</div>
-						<div class="mb-3">
-						    <label for="foto" class="form-label">Foto</label>
-						    <input type="file" class="form-control" id="foto" name="foto" required>
-						</div>
-						<div class="mb-3 text-end">
-							<button type="submit" class="btn btn-primary" name="btnTambah">Tambah</button>
-						</div>
-					</form>
-				</div>
+	<div class="container anti-navbar">
+		<div class="row">
+			<div class="col-lg-6">
+				<h2>Tambah Produk</h2>
+				<form method="post" enctype="multipart/form-data">
+					<div class="mb-3">
+					    <label for="nama_produk" class="form-label">Nama Produk</label>
+					    <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+					</div>
+					<div class="mb-3">
+					    <label for="jenis_produk" class="form-label">Jenis Produk</label>
+					    <select class="form-select" id="jenis_produk" name="jenis_produk" required>
+					    	<option value="Kue">Kue</option>
+					    	<option value="Pizza">Pizza</option>
+					    	<option value="Roti">Roti</option>
+					    </select>
+					</div>
+					<div class="mb-3">
+					    <label for="satuan_produk" class="form-label">Satuan Produk</label>
+					    <select class="form-select" id="satuan_produk" name="satuan_produk" required>
+					    	<option value="Pcs">Pcs</option>
+					    	<option value="Toples">Toples</option>
+					    </select>
+					</div>
+					<div class="mb-3">
+					    <label for="stok_produk" class="form-label">Stok Produk</label>
+					    <input type="number" class="form-control" id="stok_produk" name="stok_produk" required>
+					</div>
+					<div class="mb-3">
+					    <label for="harga_produk" class="form-label">Harga Produk</label>
+					    <input type="number" class="form-control" id="harga_produk" name="harga_produk" required>
+					</div>
+					<div class="mb-3">
+					    <label for="foto_produk" class="form-label">Foto Produk</label>
+					    <input type="file" class="form-control" id="foto_produk" name="foto_produk" required>
+					</div>
+					<div class="mb-3 text-end">
+						<button type="submit" class="btn btn-primary" name="btnTambah">Tambah</button>
+					</div>
+				</form>
 			</div>
 		</div>
-	</section>
+	</div>
 
 </body>
 </html>
