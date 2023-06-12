@@ -152,9 +152,6 @@ footer{
 .table-profile {
 	margin-bottom: 10px;
 }
-.table-profile tr {
-	border: 1px solid #eaeaea;
-}
 .table-profile td, .table-profile th {
 	padding: 10px;
 }

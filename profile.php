@@ -32,8 +32,7 @@
         <a href="ubah_profile.php" class="btn btn-success">Ubah Profile</a>
         <a href="ubah_password.php" class="btn btn-success">Ubah Password</a>
 	</div>
-	<?php include_once 'navbar.php'; ?>
 
-	<script src="script.js"></script>
+	<?php include_once 'script.php'; ?>
 </body>
 </html>

@@ -13,13 +13,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Penjualan</title>
 	<?php include_once 'head.php'; ?>
 </head>
 <body>
 
 	<?php include_once 'navbar.php'; ?>
-
+	
 	<div class="container anti-navbar">
 		<div class="row">
 			<div class="col">
@@ -30,15 +30,15 @@
 			</div>
 		</div>
 		<div class="table-responsive">
-			<table class="table table-bordered">
+			<table class="table table-bordered" id="dataTable">
 				<thead>
 					<tr>
 						<th>No.</th>
 						<th>Nama Produk</th>
-						<th>Jenis Produk</th>
-						<th>Jumlah Stok</th>
-						<th>Harga</th>
-						<th>Foto</th>
+						<th>Stok Terjual</th>
+						<th>Tanggal Penjualan</th>
+						<th>Nama Pembeli</th>
+						<th>Alamat Pembeli</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -48,15 +48,13 @@
 						<tr>
 							<td><?= $i++; ?></td>
 							<td><?= $data_penjualan['nama_produk']; ?></td>
-							<td><?= $data_penjualan['jenis_produk']; ?></td>
-							<td><?= $data_penjualan['jumlah_stok']; ?></td>
-							<td><?= $data_penjualan['harga']; ?></td>
+							<td><?= $data_penjualan['stok_terjual']; ?></td>
+							<td><?= date("d-m-Y, H:i", strtotime($data_penjualan['tanggal_penjualan'])); ?></td>
+							<td><?= $data_penjualan['nama_pembeli']; ?></td>
+							<td><?= $data_penjualan['alamat_pembeli']; ?></td>
 							<td>
-								<img width="100" src="img/<?= $data_penjualan['foto']; ?>" alt="foto">
-							</td>
-							<td>
-								<a href="" class="btn btn-success">Ubah</a>
-								<a href="" class="btn btn-danger">Hapus</a>
+								<a href="ubah_penjualan.php?id_penjualan=<?= $data_penjualan['id_penjualan']; ?>" class="btn m-1 btn-success">Ubah</a>
+								<a href="hapus_penjualan.php?id_penjualan=<?= $data_penjualan['id_penjualan']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus penjualan <?= $data_penjualan['nama_produk']; ?>?')" class="btn m-1 btn-danger">Hapus</a>
 							</td>
 						</tr>
 					<?php endforeach ?>
@@ -64,8 +62,6 @@
 			</table>
 		</div>
 	</div>
-	
 	<?php include_once 'script.php'; ?>
-
 </body>
 </html>
