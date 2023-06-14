@@ -16,10 +16,10 @@
 			<h3>CONTACT INFO</h3>
 			<div class="box">
 				<div class="col-4">
-					<a href="" target="_blank">
+					<a href="https://goo.gl/maps/8ZW3yNHvmvDffQ439" target="_blank">
 						<i class="fas fa-2x fa-map-marker-alt"></i>
 						<h4>Alamat</h4>
-                    	<P>JL. MASJID ALFALAH</P>
+                    	<P>Jl. Arco Raya No.12, Citayam, Kec.Tajur Halang, Kabupaten Bogor, Jawa Barat.</P>
 					</a>
 				</div>
 				<div class="col-4">
@@ -37,7 +37,7 @@
 					</a>
 				</div>
                 <div class="col-4">
-					<a href="https://instagram.com/@cookies_moveon" target="_blank">
+					<a href="https://www.instagram.com/cookies_moveon/" target="_blank">
 						<i class="fab fa-2x fa-instagram"></i>
 						<h4>Instagram</h4>
                     	<p>@cookies_moveon</p>
