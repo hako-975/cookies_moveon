@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2023 pada 19.05
+-- Waktu pembuatan: 14 Jun 2023 pada 18.22
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -38,17 +38,6 @@ CREATE TABLE `penjualan` (
   `status_penjualan` enum('Belum','Selesai') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `penjualan`
---
-
-INSERT INTO `penjualan` (`id_penjualan`, `id_produk`, `stok_terjual`, `tanggal_penjualan`, `total_harga`, `nama_pembeli`, `alamat_pembeli`, `status_penjualan`) VALUES
-(2, 7, 2, '2023-06-12 23:40:00', 100000, 'Andri Firman Saputra', 'Jl. AMD Babakan Pocis', 'Selesai'),
-(3, 1, 3, '2023-06-12 23:43:00', 150000, 'Andre', 'Pocis', 'Selesai'),
-(4, 1, 1, '2023-06-13 00:02:00', 50000, 'Andri Firman Saputra', 'Pocis', 'Selesai'),
-(5, 3, 2, '2023-06-13 00:03:00', 16000, 'Andri Firman Saputra', 'Pocis', 'Selesai'),
-(6, 7, 2, '2023-06-13 00:03:00', 100000, 'Andre', 'Pocis', 'Belum');
-
 -- --------------------------------------------------------
 
 --
@@ -70,15 +59,14 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `jenis_produk`, `satuan_produk`, `stok_produk`, `harga_produk`, `foto_produk`) VALUES
-(1, 'Nastar', 'Kue', 'Toples', 97, 50000, '648749eb3fef8Nastar.jpeg'),
-(2, 'Sagu Keju', 'Kue', 'Pcs', 101, 50000, 'Sagu Keju.jpeg'),
-(3, 'Pizza Mini', 'Pizza', 'Pcs', 99, 8000, 'Pizza.jpeg'),
-(4, 'Pizza', 'Pizza', 'Pcs', 101, 35000, 'Pizza.jpeg'),
-(5, 'Lidah Kucing', 'Kue', 'Pcs', 101, 50000, 'Lidah Kucing.jpeg'),
-(6, 'Putri Salju', 'Kue', 'Pcs', 101, 50000, 'Putri Salju.jpeg'),
-(7, 'Bolu Kacang', 'Kue', 'Pcs', 96, 50000, '6487301fefe79Bolu Kacang Almond.jpeg'),
-(8, 'Roti Usro', 'Roti', 'Pcs', 301, 2500, 'Roti usro.jpeg'),
-(9, 'Peler bedebu', 'Kue', 'Pcs', 101, 2000, '6486fbc52b76f-d4a737b9-eb1a-475f-a90b-23c8a9d9e7a4_43.jpeg');
+(1, 'Nastar', 'Kue', 'Toples', 100, 50000, '648749eb3fef8Nastar.jpeg'),
+(2, 'Sagu Keju', 'Kue', 'Pcs', 100, 50000, 'Sagu Keju.jpeg'),
+(3, 'Pizza Mini', 'Pizza', 'Pcs', 100, 8000, 'Pizza.jpeg'),
+(4, 'Pizza', 'Pizza', 'Pcs', 100, 35000, 'Pizza.jpeg'),
+(5, 'Lidah Kucing', 'Kue', 'Pcs', 100, 50000, 'Lidah Kucing.jpeg'),
+(6, 'Putri Salju', 'Kue', 'Pcs', 100, 50000, 'Putri Salju.jpeg'),
+(7, 'Bolu Kacang', 'Kue', 'Pcs', 100, 50000, '6487301fefe79Bolu Kacang Almond.jpeg'),
+(8, 'Roti Usro', 'Roti', 'Pcs', 100, 2500, 'Roti usro.jpeg');
 
 -- --------------------------------------------------------
 
@@ -131,7 +119,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`

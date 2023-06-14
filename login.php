@@ -55,7 +55,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-4 p-3 border rounded">
-					<img src="cookies.jpeg" class="d-block mx-auto" width="200" alt="gambar">
+					<img src="img/Logo.jpeg" class="d-block mx-auto rounded-circle" width="200" alt="gambar">
 					<h2 class="text-center">Form Login</h2>
 					<h2 class="text-center">Cookies MoveOn</h2>
 					<form method="post">
